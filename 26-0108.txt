@@ -1,0 +1,520 @@
+Last login: Thu Jan  8 16:47:26 on console
+takayanagihajime@takayanimenoAir ~ % pip install gymnasium
+zsh: command not found: pip
+takayanagihajime@takayanimenoAir ~ % python --version
+zsh: command not found: python
+takayanagihajime@takayanimenoAir ~ % export PATH="$(brew --prefix python)/libexec/bin:$PATH"
+takayanagihajime@takayanimenoAir ~ % python --version
+Python 3.14.2
+takayanagihajime@takayanimenoAir ~ % pip install gymnasium
+error: externally-managed-environment
+
+× This environment is externally managed
+╰─> To install Python packages system-wide, try brew install
+    xyz, where xyz is the package you are trying to
+    install.
+    
+    If you wish to install a Python library that isn't in Homebrew,
+    use a virtual environment:
+    
+    python3 -m venv path/to/venv
+    source path/to/venv/bin/activate
+    python3 -m pip install xyz
+    
+    If you wish to install a Python application that isn't in Homebrew,
+    it may be easiest to use 'pipx install xyz', which will manage a
+    virtual environment for you. You can install pipx with
+    
+    brew install pipx
+    
+    You may restore the old behavior of pip by passing
+    the '--break-system-packages' flag to pip, or by adding
+    'break-system-packages = true' to your pip.conf file. The latter
+    will permanently disable this error.
+    
+    If you disable this error, we STRONGLY recommend that you additionally
+    pass the '--user' flag to pip, or set 'user = true' in your pip.conf
+    file. Failure to do this can result in a broken Homebrew installation.
+    
+    Read more about this behavior here: <https://peps.python.org/pep-0668/>
+
+note: If you believe this is a mistake, please contact your Python installation or OS distribution provider. You can override this, at the risk of breaking your Python installation or OS, by passing --break-system-packages.
+hint: See PEP 668 for the detailed specification.
+takayanagihajime@takayanimenoAir ~ % mkdir rl
+takayanagihajime@takayanimenoAir ~ % cd rl
+takayanagihajime@takayanimenoAir rl % python3 -m venv venv
+takayanagihajime@takayanimenoAir rl % source venv/bin/activate
+(venv) takayanagihajime@takayanimenoAir rl % pip install gymnasium
+Collecting gymnasium
+  Downloading gymnasium-1.2.3-py3-none-any.whl.metadata (10 kB)
+Collecting numpy>=1.21.0 (from gymnasium)
+  Downloading numpy-2.4.0-cp314-cp314-macosx_14_0_arm64.whl.metadata (6.6 kB)
+Collecting cloudpickle>=1.2.0 (from gymnasium)
+  Downloading cloudpickle-3.1.2-py3-none-any.whl.metadata (7.1 kB)
+Collecting typing-extensions>=4.3.0 (from gymnasium)
+  Downloading typing_extensions-4.15.0-py3-none-any.whl.metadata (3.3 kB)
+Collecting farama-notifications>=0.0.1 (from gymnasium)
+  Downloading Farama_Notifications-0.0.4-py3-none-any.whl.metadata (558 bytes)
+Downloading gymnasium-1.2.3-py3-none-any.whl (952 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 952.1/952.1 kB 2.3 MB/s  0:00:00
+Downloading cloudpickle-3.1.2-py3-none-any.whl (22 kB)
+Downloading Farama_Notifications-0.0.4-py3-none-any.whl (2.5 kB)
+Downloading numpy-2.4.0-cp314-cp314-macosx_14_0_arm64.whl (5.2 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 5.2/5.2 MB 3.0 MB/s  0:00:01
+Downloading typing_extensions-4.15.0-py3-none-any.whl (44 kB)
+Installing collected packages: farama-notifications, typing-extensions, numpy, cloudpickle, gymnasium
+Successfully installed cloudpickle-3.1.2 farama-notifications-0.0.4 gymnasium-1.2.3 numpy-2.4.0 typing-extensions-4.15.0
+(venv) takayanagihajime@takayanimenoAir rl % pip install gymnasium[classic-control]
+zsh: no matches found: gymnasium[classic-control]
+(venv) takayanagihajime@takayanimenoAir rl % pip install pygame
+Collecting pygame
+  Downloading pygame-2.6.1.tar.gz (14.8 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 14.8/14.8 MB 4.6 MB/s  0:00:03
+  Installing build dependencies ... done
+  Getting requirements to build wheel ... done
+  Preparing metadata (pyproject.toml) ... done
+Building wheels for collected packages: pygame
+  Building wheel for pygame (pyproject.toml) ... error
+  error: subprocess-exited-with-error
+  
+  × Building wheel for pygame (pyproject.toml) did not run successfully.
+  │ exit code: 1
+  ╰─> [14 lines of output]
+      src_c/_sdl2/sdl2.c:1237:10: fatal error: 'SDL.h' file not found
+      #include "SDL.h"
+               ^~~~~~~
+      1 error generated.
+      Skipping Cython compilation
+      
+      ---
+      For help with compilation see:
+          https://www.pygame.org/wiki/MacCompile
+      To contribute to pygame development see:
+          https://www.pygame.org/contribute.html
+      ---
+      
+      error: command '/usr/bin/clang' failed with exit code 1
+      [end of output]
+  
+  note: This error originates from a subprocess, and is likely not a problem with pip.
+  ERROR: Failed building wheel for pygame
+Failed to build pygame
+error: failed-wheel-build-for-install
+
+× Failed to build installable wheels for some pyproject.toml based projects
+╰─> pygame
+(venv) takayanagihajime@takayanimenoAir rl % pip install "gymnasium[classic-control]"
+
+Requirement already satisfied: gymnasium[classic-control] in ./venv/lib/python3.14/site-packages (1.2.3)
+Requirement already satisfied: numpy>=1.21.0 in ./venv/lib/python3.14/site-packages (from gymnasium[classic-control]) (2.4.0)
+Requirement already satisfied: cloudpickle>=1.2.0 in ./venv/lib/python3.14/site-packages (from gymnasium[classic-control]) (3.1.2)
+Requirement already satisfied: typing-extensions>=4.3.0 in ./venv/lib/python3.14/site-packages (from gymnasium[classic-control]) (4.15.0)
+Requirement already satisfied: farama-notifications>=0.0.1 in ./venv/lib/python3.14/site-packages (from gymnasium[classic-control]) (0.0.4)
+Collecting pygame>=2.1.3 (from gymnasium[classic-control])
+  Using cached pygame-2.6.1.tar.gz (14.8 MB)
+  Installing build dependencies ... done
+  Getting requirements to build wheel ... done
+  Preparing metadata (pyproject.toml) ... done
+Building wheels for collected packages: pygame
+  Building wheel for pygame (pyproject.toml) ... error
+  error: subprocess-exited-with-error
+  
+  × Building wheel for pygame (pyproject.toml) did not run successfully.
+  │ exit code: 1
+  ╰─> [14 lines of output]
+      src_c/_sdl2/sdl2.c:1237:10: fatal error: 'SDL.h' file not found
+      #include "SDL.h"
+               ^~~~~~~
+      1 error generated.
+      Skipping Cython compilation
+      
+      ---
+      For help with compilation see:
+          https://www.pygame.org/wiki/MacCompile
+      To contribute to pygame development see:
+          https://www.pygame.org/contribute.html
+      ---
+      
+      error: command '/usr/bin/clang' failed with exit code 1
+      [end of output]
+  
+  note: This error originates from a subprocess, and is likely not a problem with pip.
+  ERROR: Failed building wheel for pygame
+Failed to build pygame
+error: failed-wheel-build-for-install
+
+× Failed to build installable wheels for some pyproject.toml based projects
+╰─> pygame
+(venv) takayanagihajime@takayanimenoAir rl % source venv/bin/activate
+
+(venv) takayanagihajime@takayanimenoAir rl % pip install pygame
+
+Collecting pygame
+  Using cached pygame-2.6.1.tar.gz (14.8 MB)
+  Installing build dependencies ... done
+  Getting requirements to build wheel ... done
+  Preparing metadata (pyproject.toml) ... done
+Building wheels for collected packages: pygame
+  Building wheel for pygame (pyproject.toml) ... error
+  error: subprocess-exited-with-error
+  
+  × Building wheel for pygame (pyproject.toml) did not run successfully.
+  │ exit code: 1
+  ╰─> [14 lines of output]
+      src_c/_sdl2/sdl2.c:1237:10: fatal error: 'SDL.h' file not found
+      #include "SDL.h"
+               ^~~~~~~
+      1 error generated.
+      Skipping Cython compilation
+      
+      ---
+      For help with compilation see:
+          https://www.pygame.org/wiki/MacCompile
+      To contribute to pygame development see:
+          https://www.pygame.org/contribute.html
+      ---
+      
+      error: command '/usr/bin/clang' failed with exit code 1
+      [end of output]
+  
+  note: This error originates from a subprocess, and is likely not a problem with pip.
+  ERROR: Failed building wheel for pygame
+Failed to build pygame
+error: failed-wheel-build-for-install
+
+× Failed to build installable wheels for some pyproject.toml based projects
+╰─> pygame
+(venv) takayanagihajime@takayanimenoAir rl % brew list | grep sdl2
+
+(venv) takayanagihajime@takayanimenoAir rl % brew install sdl2 sdl2_image sdl2_mixer sdl2_ttf
+
+==> Auto-updating Homebrew...
+Adjust how often this is run with `$HOMEBREW_AUTO_UPDATE_SECS` or disable with
+`$HOMEBREW_NO_AUTO_UPDATE=1`. Hide these hints with `$HOMEBREW_NO_ENV_HINTS=1` (see `man brew`).
+==> Downloading https://ghcr.io/v2/homebrew/core/portable-ruby/blobs/sha256:1c98fa49eacc935640a6f8e10a2bf33f14cfc276804b71ddb658ea45ba99d167
+######################################################################### 100.0%
+==> Pouring portable-ruby-3.4.8.arm64_big_sur.bottle.tar.gz
+==> Auto-updated Homebrew!
+Updated 2 taps (homebrew/core and homebrew/cask).
+==> New Formulae
+adplay: Command-line player for OPL2 music
+astra: Command-Line Interface for DataStax Astra
+av1an: Cross-platform command-line encoding framework
+beads: Memory upgrade for your coding agent
+bookokrat: Terminal EPUB Book Reader
+calm-cli: CLI allows you to interact with the Common Architecture Language Model (CALM)
+ccextractor: Tool for extracting closed captions from video files
+cek: Explore the (overlay) filesystem and layers of OCI container images
+cinecli: Browse, inspect, and launch movie torrents directly from your terminal
+classifier: Text classification with Bayesian, LSI, Logistic Regression, and kNN
+ctags-lsp: LSP implementation using universal-ctags as backend
+ctre: Compile-time PCRE-compatible regular expression matcher for C++
+depot: Build your Docker images in the cloud
+dnspyre: CLI tool for a high QPS DNS benchmark
+docker-language-server: Language server for Dockerfiles, Compose files, and Bake files
+dotnet@9: .NET Core
+flecs: Fast entity component system for C & C++
+garage: S3 object store so reliable you can run it outside datacenters
+gastown: Multi-agent workspace manager
+git-get: Better way to clone, organize and manage multiple git repositories
+git-pages: Scalable static site server for Git forges
+git-pages-cli: Tool for publishing a site to a git-pages server
+global-arrays: Partitioned Global Address Space (PGAS) library for distributed arrays
+graphqlite: SQLite graph database extension
+gup: Update binaries installed by go install
+hayagriva: Bibliography management tool
+headscale-cli: CLI for headscale, an open-source implementation of the Tailscale control server
+headson: Head/tail for structured data
+helix-db: Open-source graph-vector database built from scratch in Rust
+jsonfmt: Like gofmt, but for JSON files
+karakeep: CLI tool for self-hostable bookmark-everything app karakeep
+khaos: Kafka traffic simulator for observability and chaos engineering
+klog: Command-line tool for time tracking in a human-readable, plain-text file format
+kubernetes-cli@1.34: Kubernetes command-line interface
+kyua: Testing framework for infrastructure software
+ladybug: Embedded graph database built for query speed and scalability
+leetsolv: CLI tool for DSA problem revision with spaced repetition
+libevdev: Wrapper library for evdev devices
+lispkit: Scheme framework for extension and scripting languages on macOS and iOS
+macchanger: Change your mac address, for macOS
+mapscii: Whole World In Your Console
+mcp-scan: Constrain, log and scan your MCP connections for security vulnerabilities
+mistral-vibe: Minimal CLI coding agent
+mole: Deep clean and optimize your Mac
+mq: Jq-like command-line tool for markdown processing
+mufetch: Neofetch-style music cli
+neo4j-mcp: Neo4j official Model Context Protocol server for AI tools
+netshow: Interactive network connection monitor with friendly service names
+nkt: TUI for fast and simple interacting with your BibLaTeX database
+octodns: Tools for managing DNS across multiple providers
+oxfmt: High-performance formatting tool for JavaScript and TypeScript
+pake: Turn any webpage into a desktop app with Rust with ease
+papis: Powerful command-line document and bibliography manager
+patchpal: AI Assisted Patch Backporting Tool Frontend
+pixlet: App runtime and UX toolkit for pixel-based apps
+pony-language-server: Language server for Pony
+pvetui: Terminal UI for Proxmox VE
+qo: Interactive minimalist TUI to query JSON, CSV, and TSV using SQL
+rad: Modern CLI scripts made easy
+rockcraft: Tool to create OCI images using the language from Snapcraft and Charmcraft
+ruby@3.4: Powerful, clean, object-oriented scripting language
+snitch: Prettier way to inspect network connections
+superseedr: BitTorrent Client in your Terminal
+svu: Semantic version utility
+talm: Manage Talos Linux configurations the GitOps way
+tfclean: Remove applied moved block, import block, etc
+topydo: Todo list application using the todo.txt format
+tree-sitter@0.25: Incremental parsing library
+tronbyt-server: Manage your apps on your Tronbyt (flashed Tidbyt) completely locally
+ty: Extremely fast Python type checker, written in Rust
+vacuum: World's fastest OpenAPI & Swagger linter
+wasm-bindgen: Facilitating high-level interactions between Wasm modules and JavaScript
+wifitui: Fast featureful friendly wifi terminal UI
+witr: Why is this running?
+wuchale: Protobuf-like i18n from plain code
+==> New Casks
+8bitdo-ultimate-software-v2: Control every piece of your controller
+alma: AI chat application
+aya: Android ADB desktop app
+clipaste: Clipboard history manager
+comet: Web browser with integrated AI assistant
+conar: AI-powered database and data management tool
+copilot-cli@prerelease: Brings the power of Copilot coding agent directly to your terminal
+crypto-native-app-ng: Encrypts and signs data on your computer and communicates with browser extension
+datadog-security-cli: Datadog Security Product CLI
+digiexam: Academic testing platform with device lockdown
+elgato-studio: Capture and manage Elgato devices for content creation
+excire-search: Lightroom Classic plugin with automatic keywording and advanced search
+font-guguru-sans-code
+font-guguru-sans-code-nf
+font-kikai-chokoku-jis
+glkvm: App for controlling GL.iNet KVM devices
+gonhanh: Vietnamese input method engine
+kitlangton-hex: Voice-to-text transcription and paste tool
+kubeterm: Kubernetes graphical management tool
+m32-edit: Remote control for Midas M32 audio consoles
+macdown-3000: Markdown editor with live preview and syntax highlighting
+mace: Simplify compliance baseline creation, auditing, and management
+maestro: AI agent command center
+maru-jan: Play japanese mahjong online
+monocle-app: Window dimming utility
+mpluginmanager: Installer for MeldaProduction audio plugins
+mstystudio: AI platform with local and online models
+nani: AI-powered translator
+novation-components: Manager and updater for Novation hardware
+opencode-desktop: AI coding agent desktop client
+papercut-mobility-print-client: Client for printing to PaperCut Mobility Print queues
+portalbox: Share a region of your screen in video calls
+smartsheet: Spreadsheet-style project management solution
+snapmaker-orca: Slicing software for Snapmaker 3D printers, a fork of OrcaSlicer
+sourcegit: Git GUI client
+support: Menu bar app for user and help desk support
+swiftdialog: Admin utility that presents custom dialogs or messages from shell scripts
+taphouse: Native GUI for Homebrew package management
+typeless: AI voice dictation that turns speech into polished text
+uuremote: NetEase UU remote desktop access and control tool
+vcamapp: Face-tracking virtual avatar app
+visualdiffer: Visually compare folders and files
+wailbrew: Manage Homebrew packages with a UI
+wireless-workbench: Desktop app for RF coordination and wireless system management
+yingfu-online: Education app for teens
+
+You have 37 outdated formulae and 1 outdated cask installed.
+
+==> Fetching downloads for: sdl2, sdl2_image, sdl2_mixer and sdl2_ttf
+✔︎ Bottle Manifest sdl2 (2.32.10)                     Downloaded   23.0KB/ 23.0KB
+✔︎ Bottle Manifest sdl2_mixer (2.8.1_1)               Downloaded   41.8KB/ 41.8KB
+✔︎ Bottle Manifest sdl2_ttf (2.24.0)                  Downloaded   45.3KB/ 45.3KB
+✔︎ Bottle Manifest sdl2_image (2.8.8)                 Downloaded   40.3KB/ 40.3KB
+✔︎ Bottle Manifest openjph (0.26.0)                   Downloaded   12.2KB/ 12.2KB
+✔︎ Bottle Manifest jpeg-turbo (3.1.3)                 Downloaded    8.3KB/  8.3KB
+✔︎ Bottle Manifest xz (5.8.2)                         Downloaded   11.8KB/ 11.8KB
+✔︎ Bottle Manifest dav1d (1.5.3)                      Downloaded    7.6KB/  7.6KB
+✔︎ Bottle Manifest flac (1.5.0)                       Downloaded   12.5KB/ 12.5KB
+✔︎ Bottle Manifest libogg (1.3.6)                     Downloaded    9.3KB/  9.3KB
+✔︎ Bottle Manifest lame (3.100)                       Downloaded   16.1KB/ 16.1KB
+✔︎ Bottle Manifest libvorbis (1.3.7)                  Downloaded   14.2KB/ 14.2KB
+✔︎ Bottle Manifest mpg123 (1.33.4)                    Downloaded    8.3KB/  8.3KB
+✔︎ Bottle Manifest opus (1.6)                         Downloaded    7.2KB/  7.2KB
+✔︎ Bottle openjph (0.26.0)                            Downloaded  157.9KB/157.9KB
+✔︎ Bottle sdl2_image (2.8.8)                          Downloaded  132.7KB/132.7KB
+✔︎ Bottle Manifest libsndfile (1.2.2_1)               Downloaded   17.4KB/ 17.4KB
+✔︎ Bottle dav1d (1.5.3)                               Downloaded  360.5KB/360.5KB
+✔︎ Bottle libogg (1.3.6)                              Downloaded  234.8KB/234.8KB
+✔︎ Bottle Manifest portaudio (19.7.0)                 Downloaded   19.8KB/ 19.8KB
+✔︎ Bottle Manifest pcre2 (10.47)                      Downloaded   10.4KB/ 10.4KB
+✔︎ Bottle xz (5.8.2)                                  Downloaded  766.0KB/766.0KB
+✔︎ Bottle flac (1.5.0)                                Downloaded  555.3KB/555.3KB
+✔︎ Bottle Manifest fluid-synth (2.5.2)                Downloaded   25.2KB/ 25.2KB
+✔︎ Bottle sdl2 (2.32.10)                              Downloaded    1.8MB/  1.8MB
+✔︎ Bottle opus (1.6)                                  Downloaded  502.8KB/502.8KB
+✔︎ Bottle jpeg-turbo (3.1.3)                          Downloaded    1.1MB/  1.1MB
+✔︎ Bottle lame (3.100)                                Downloaded  795.7KB/795.7KB
+✔︎ Bottle libvorbis (1.3.7)                           Downloaded  589.7KB/589.7KB
+✔︎ Bottle Manifest gettext (0.26_1)                   Downloaded   13.8KB/ 13.8KB
+✔︎ Bottle mpg123 (1.33.4)                             Downloaded  650.4KB/650.4KB
+✔︎ Bottle portaudio (19.7.0)                          Downloaded  138.9KB/138.9KB
+✔︎ Bottle Manifest readline (8.3.3)                   Downloaded   10.0KB/ 10.0KB
+✔︎ Bottle Manifest glib (2.86.3)                      Downloaded   20.2KB/ 20.2KB
+✔︎ Bottle Manifest game-music-emu (0.6.4)             Downloaded    9.9KB/  9.9KB
+✔︎ Bottle Manifest libxmp (4.6.3)                     Downloaded    9.5KB/  9.5KB
+✔︎ Bottle libsndfile (1.2.2_1)                        Downloaded  616.5KB/616.5KB
+✔︎ Bottle Manifest wavpack (5.8.1)                    Downloaded   10.1KB/ 10.1KB
+✔︎ Bottle Manifest opusfile (0.12_1)                  Downloaded   17.5KB/ 17.5KB
+✔︎ Bottle Manifest icu4c@78 (78.1)                    Downloaded    9.7KB/  9.7KB
+✔︎ Bottle opusfile (0.12_1)                           Downloaded  101.2KB/101.2KB
+✔︎ Bottle game-music-emu (0.6.4)                      Downloaded  312.5KB/312.5KB
+✔︎ Bottle sdl2_mixer (2.8.1_1)                        Downloaded  159.4KB/159.4KB
+✔︎ Bottle readline (8.3.3)                            Downloaded  762.1KB/762.1KB
+✔︎ Bottle sdl2_ttf (2.24.0)                           Downloaded   54.0KB/ 54.0KB
+✔︎ Bottle pcre2 (10.47)                               Downloaded    2.4MB/  2.4MB
+✔︎ Bottle wavpack (5.8.1)                             Downloaded  551.6KB/551.6KB
+✔︎ Bottle libxmp (4.6.3)                              Downloaded  588.2KB/588.2KB
+✔︎ Bottle fluid-synth (2.5.2)                         Downloaded    1.2MB/  1.2MB
+✔︎ Bottle glib (2.86.3)                               Downloaded    9.0MB/  9.0MB
+✔︎ Bottle gettext (0.26_1)                            Downloaded    9.6MB/  9.6MB
+✔︎ Bottle icu4c@78 (78.1)                             Downloaded   32.0MB/ 32.0MB
+==> Pouring sdl2--2.32.10.arm64_sonoma.bottle.tar.gz
+🍺  /opt/homebrew/Cellar/sdl2/2.32.10: 94 files, 6.7MB
+==> Running `brew cleanup sdl2`...
+Disable this behaviour by setting `HOMEBREW_NO_INSTALL_CLEANUP=1`.
+Hide these hints with `HOMEBREW_NO_ENV_HINTS=1` (see `man brew`).
+==> Installing dependencies for sdl2_image: openjph and dav1d
+==> Installing sdl2_image dependency: openjph
+==> Installing dependencies for openjph: jpeg-turbo and xz
+==> Installing openjph dependency: jpeg-turbo
+==> Pouring jpeg-turbo--3.1.3.arm64_sonoma.bottle.tar.gz
+🍺  /opt/homebrew/Cellar/jpeg-turbo/3.1.3: 47 files, 3.7MB
+==> Installing openjph dependency: xz
+==> Pouring xz--5.8.2.arm64_sonoma.bottle.tar.gz
+🍺  /opt/homebrew/Cellar/xz/5.8.2: 96 files, 2.7MB
+==> Installing openjph
+==> Pouring openjph--0.26.0.arm64_sonoma.bottle.tar.gz
+🍺  /opt/homebrew/Cellar/openjph/0.26.0: 25 files, 637.6KB
+==> Installing sdl2_image dependency: dav1d
+==> Pouring dav1d--1.5.3.arm64_sonoma.bottle.tar.gz
+🍺  /opt/homebrew/Cellar/dav1d/1.5.3: 16 files, 944.9KB
+==> Installing sdl2_image
+==> Pouring sdl2_image--2.8.8.arm64_sonoma.bottle.tar.gz
+🍺  /opt/homebrew/Cellar/sdl2_image/2.8.8: 15 files, 423.2KB
+==> Running `brew cleanup sdl2_image`...
+==> Installing dependencies for sdl2_mixer: libogg, flac, lame, libvorbis, mpg123, opus, libsndfile, portaudio, fluid-synth, game-music-emu, libxmp, opusfile and wavpack
+==> Installing sdl2_mixer dependency: libogg
+==> Pouring libogg--1.3.6.arm64_sonoma.bottle.tar.gz
+🍺  /opt/homebrew/Cellar/libogg/1.3.6: 103 files, 551.2KB
+==> Installing sdl2_mixer dependency: flac
+==> Pouring flac--1.5.0.arm64_sonoma.bottle.tar.gz
+🍺  /opt/homebrew/Cellar/flac/1.5.0: 40 files, 2.0MB
+==> Installing sdl2_mixer dependency: lame
+==> Pouring lame--3.100.arm64_sonoma.bottle.tar.gz
+🍺  /opt/homebrew/Cellar/lame/3.100: 28 files, 2.3MB
+==> Installing sdl2_mixer dependency: libvorbis
+==> Pouring libvorbis--1.3.7.arm64_sonoma.bottle.1.tar.gz
+🍺  /opt/homebrew/Cellar/libvorbis/1.3.7: 158 files, 2.5MB
+==> Installing sdl2_mixer dependency: mpg123
+==> Pouring mpg123--1.33.4.arm64_sonoma.bottle.tar.gz
+🍺  /opt/homebrew/Cellar/mpg123/1.33.4: 34 files, 2MB
+==> Installing sdl2_mixer dependency: opus
+==> Pouring opus--1.6.arm64_sonoma.bottle.tar.gz
+🍺  /opt/homebrew/Cellar/opus/1.6: 16 files, 1.1MB
+==> Installing sdl2_mixer dependency: libsndfile
+==> Pouring libsndfile--1.2.2_1.arm64_sonoma.bottle.tar.gz
+🍺  /opt/homebrew/Cellar/libsndfile/1.2.2_1: 55 files, 1.8MB
+==> Installing sdl2_mixer dependency: portaudio
+==> Pouring portaudio--19.7.0.arm64_sonoma.bottle.1.tar.gz
+🍺  /opt/homebrew/Cellar/portaudio/19.7.0: 34 files, 558.8KB
+==> Installing sdl2_mixer dependency: fluid-synth
+==> Installing dependencies for fluid-synth: pcre2, gettext, glib and readline
+==> Installing fluid-synth dependency: pcre2
+==> Pouring pcre2--10.47.arm64_sonoma.bottle.tar.gz
+🍺  /opt/homebrew/Cellar/pcre2/10.47: 244 files, 7.2MB
+==> Installing fluid-synth dependency: gettext
+==> Pouring gettext--0.26_1.arm64_sonoma.bottle.tar.gz
+🍺  /opt/homebrew/Cellar/gettext/0.26_1: 2,428 files, 29.6MB
+==> Installing fluid-synth dependency: glib
+==> Pouring glib--2.86.3.arm64_sonoma.bottle.tar.gz
+🍺  /opt/homebrew/Cellar/glib/2.86.3: 504 files, 38.5MB
+==> Installing fluid-synth dependency: readline
+==> Pouring readline--8.3.3.arm64_sonoma.bottle.tar.gz
+🍺  /opt/homebrew/Cellar/readline/8.3.3: 56 files, 2.7MB
+==> Installing fluid-synth
+==> Pouring fluid-synth--2.5.2.arm64_sonoma.bottle.tar.gz
+🍺  /opt/homebrew/Cellar/fluid-synth/2.5.2: 44 files, 4MB
+==> Installing sdl2_mixer dependency: game-music-emu
+==> Pouring game-music-emu--0.6.4.arm64_sonoma.bottle.tar.gz
+🍺  /opt/homebrew/Cellar/game-music-emu/0.6.4: 13 files, 780.6KB
+==> Installing sdl2_mixer dependency: libxmp
+==> Pouring libxmp--4.6.3.arm64_sonoma.bottle.tar.gz
+🍺  /opt/homebrew/Cellar/libxmp/4.6.3: 15 files, 1.2MB
+==> Installing sdl2_mixer dependency: opusfile
+==> Pouring opusfile--0.12_1.arm64_sonoma.bottle.tar.gz
+🍺  /opt/homebrew/Cellar/opusfile/0.12_1: 18 files, 358.5KB
+==> Installing sdl2_mixer dependency: wavpack
+==> Pouring wavpack--5.8.1.arm64_sonoma.bottle.tar.gz
+🍺  /opt/homebrew/Cellar/wavpack/5.8.1: 26 files, 1.2MB
+==> Installing sdl2_mixer
+==> Pouring sdl2_mixer--2.8.1_1.arm64_sonoma.bottle.tar.gz
+🍺  /opt/homebrew/Cellar/sdl2_mixer/2.8.1_1: 25 files, 567.7KB
+==> Running `brew cleanup sdl2_mixer`...
+==> Installing sdl2_ttf dependency: icu4c@78
+==> Pouring icu4c@78--78.1.arm64_sonoma.bottle.tar.gz
+🍺  /opt/homebrew/Cellar/icu4c@78/78.1: 279 files, 88.0MB
+==> Pouring sdl2_ttf--2.24.0.arm64_sonoma.bottle.tar.gz
+🍺  /opt/homebrew/Cellar/sdl2_ttf/2.24.0: 13 files, 288.3KB
+==> Running `brew cleanup sdl2_ttf`...
+==> `brew cleanup` has not been run in the last 30 days, running now...
+Disable this behaviour by setting `HOMEBREW_NO_INSTALL_CLEANUP=1`.
+Hide these hints with `HOMEBREW_NO_ENV_HINTS=1` (see `man brew`).
+Removing: /opt/homebrew/Cellar/gettext/0.26... (2,428 files, 29.6MB)
+Removing: /Users/takayanagihajime/Library/Caches/Homebrew/gettext_bottle_manifest--0.26... (17.9KB)
+Removing: /Users/takayanagihajime/Library/Caches/Homebrew/gettext--0.26... (9.6MB)
+Removing: /opt/homebrew/Cellar/glib/2.86.0... (504 files, 38.4MB)
+Removing: /Users/takayanagihajime/Library/Caches/Homebrew/glib_bottle_manifest--2.86.0... (24.4KB)
+Removing: /Users/takayanagihajime/Library/Caches/Homebrew/glib--2.86.0... (9.0MB)
+Removing: /opt/homebrew/Cellar/jpeg-turbo/3.1.2... (47 files, 3.7MB)
+Removing: /Users/takayanagihajime/Library/Caches/Homebrew/jpeg-turbo_bottle_manifest--3.1.2... (10.7KB)
+Removing: /Users/takayanagihajime/Library/Caches/Homebrew/jpeg-turbo--3.1.2... (1MB)
+Removing: /opt/homebrew/Cellar/openjph/0.23.1... (25 files, 637KB)
+Removing: /opt/homebrew/Cellar/openjph/0.24.2... (25 files, 637.7KB)
+Removing: /Users/takayanagihajime/Library/Caches/Homebrew/openjph_bottle_manifest--0.23.1... (12.3KB)
+Removing: /Users/takayanagihajime/Library/Caches/Homebrew/openjph_bottle_manifest--0.24.2... (12.3KB)
+Removing: /Users/takayanagihajime/Library/Caches/Homebrew/openjph--0.23.1... (157.3KB)
+Removing: /Users/takayanagihajime/Library/Caches/Homebrew/openjph--0.24.2... (157.5KB)
+Removing: /opt/homebrew/Cellar/pcre2/10.46... (242 files, 7MB)
+Removing: /Users/takayanagihajime/Library/Caches/Homebrew/pcre2_bottle_manifest--10.46... (12.9KB)
+Removing: /Users/takayanagihajime/Library/Caches/Homebrew/pcre2--10.46... (2.3MB)
+Removing: /opt/homebrew/Cellar/readline/8.3.1... (56 files, 2.7MB)
+Removing: /Users/takayanagihajime/Library/Caches/Homebrew/readline_bottle_manifest--8.3.1... (12.3KB)
+Removing: /Users/takayanagihajime/Library/Caches/Homebrew/readline--8.3.1... (761.7KB)
+Removing: /opt/homebrew/Cellar/xz/5.8.1... (96 files, 2.6MB)
+Removing: /Users/takayanagihajime/Library/Caches/Homebrew/xz_bottle_manifest--5.8.1... (14.5KB)
+Removing: /Users/takayanagihajime/Library/Caches/Homebrew/xz--5.8.1... (748.1KB)
+==> Autoremoving 2 unneeded formulae:
+dav1d
+icu4c@78
+Uninstalling /opt/homebrew/Cellar/dav1d/1.5.3... (16 files, 944.9KB)
+Uninstalling /opt/homebrew/Cellar/icu4c@78/78.1... (279 files, 88.0MB)
+Removing: /Users/takayanagihajime/Library/Caches/Homebrew/portable-ruby-3.4.7.arm64_big_sur.bottle.tar.gz... (12.2MB)
+Removing: /Users/takayanagihajime/Library/Caches/Homebrew/bootsnap/42e939983ed75547f42207cad9f1e0fde134291f63f94bcb8df8abbd25416d42... (646 files, 5.6MB)
+Pruned 0 symbolic links and 2 directories from /opt/homebrew
+(venv) takayanagihajime@takayanimenoAir rl % brew --prefix sdl2
+
+/opt/homebrew/opt/sdl2
+(venv) takayanagihajime@takayanimenoAir rl % source venv/bin/activate
+
+(venv) takayanagihajime@takayanimenoAir rl % export CPPFLAGS="-I/opt/homebrew/opt/sdl2/include"
+(venv) takayanagihajime@takayanimenoAir rl % export LDFLAGS="-L/opt/homebrew/opt/sdl2/lib"
+(venv) takayanagihajime@takayanimenoAir rl % pip install pygame
+Collecting pygame
+  Using cached pygame-2.6.1.tar.gz (14.8 MB)
+  Installing build dependencies ... done
+  Getting requirements to build wheel ... done
+  Preparing metadata (pyproject.toml) ... done
+Building wheels for collected packages: pygame
+  Building wheel for pygame (pyproject.toml) ... done
+  Created wheel for pygame: filename=pygame-2.6.1-cp314-cp314-macosx_14_0_arm64.whl size=7386036 sha256=ed5cba8ed8c922ed7d977e3b52fdc95e240f3912e2af08bbe4d65e0fab3c35e3
+  Stored in directory: /Users/takayanagihajime/Library/Caches/pip/wheels/f7/e8/4a/d52dd2b28f0e1b8bac3489ef973656b2614600e1c26313ef04
+Successfully built pygame
+Installing collected packages: pygame
+Successfully installed pygame-2.6.1
+(venv) takayanagihajime@takayanimenoAir rl % 
